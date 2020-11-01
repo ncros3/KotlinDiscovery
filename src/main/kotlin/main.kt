@@ -1,33 +1,34 @@
 /**
  *  ----- INITIEZ-VOUS A KOTLIN -----
  *
- * Partie 1 - Chapitre 3 : Implementez differentes fonctions
+ * Partie 1 - Chapitre 4 : Generez vos premieres classes
  *
  *  ----- ENONCE -----
  *
- * Dans cet exercice interactif, vous allez devoir creer :
+ * Dans cet exercice interactif, vous allez devoir :
  *
- * - getResult() : Une fonction retournant le resultat (nombres entiers) d'une addition
- * entre les deux nombres fournis en parametre
- * - getUsernameUpperCase() : Une fonction retournant le nom de l'utilisateur
- * fourni en parametre, mais tout en majuscule !
- * - isUsernameOfTeacher() : Une fonction retournant true si le nom de l'utilisateur
- * fourni en parametre est égale à "Phil" ou "Ambroise", et false dans les autres cas.
+ * - Creer une classe "Course" : Cette classe represente un cours sur Openclassrooms.
+ * Elle devra contenir un identifiant, un titre, une duree et un etat (actif ou non).
  *
- * Au lancement du programme, vous executerez et afficherez le resultat
- * de ces trois fonctions.
+ * - Declarer et initialiser ce cours avec toutes ses proprietes
+ * (vous avez libre choix du contenu). Attention toutefois,
+ * l'identifiant ne doit pouvoir etre ni modifie, ni consulte depuis
+ * l'exterieur de la classe. La duree du cours pourra quant à elle etre accessible
+ * mais non modifiable.
+ *
+ * - Afficher le titre de votre cours nouvellement initialise.
+ *
+ *
  *
  * A vous de jouer, et bon courage !
  *
  */
-fun getResult(a: Int, b: Int) = a + b
-fun getUsernameUpperCase(name: String) = println(name.toUpperCase())
-fun isUsernameOfTeacher(name: String) = if(name == "Phil" || name == "Ambroise") true else false
+class Course(private val id: Int, var title: String, val duration: Int, var state: Boolean)
 
 fun main(args: Array<String>) {
     println("Hello Openclassrooms students !")
 
-    println(getResult(10, 35))
-    getUsernameUpperCase("Edouard")
-    println(isUsernameOfTeacher("Lea"))
+    val softwareCourse = Course(10, "software course", 10, false)
+
+    println(softwareCourse.title)
 }
