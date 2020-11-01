@@ -1,34 +1,49 @@
 /**
  *  ----- INITIEZ-VOUS A KOTLIN -----
  *
- * Partie 1 - Chapitre 4 : Generez vos premieres classes
+ * Partie 2 - Chapitre 1 : Gerez des choix et des conditions
  *
  *  ----- ENONCE -----
  *
  * Dans cet exercice interactif, vous allez devoir :
  *
- * - Creer une classe "Course" : Cette classe represente un cours sur Openclassrooms.
- * Elle devra contenir un identifiant, un titre, une duree et un etat (actif ou non).
+ * - Creer une fonction utilisant la structure de controle "if" uniquement.
+ * Celle-ci devra retourner le plus petit des deux nombres fournis en parametre.
+ * De plus, le résultat devra etre multiplie par 10.
  *
- * - Declarer et initialiser ce cours avec toutes ses proprietes
- * (vous avez libre choix du contenu). Attention toutefois,
- * l'identifiant ne doit pouvoir etre ni modifie, ni consulte depuis
- * l'exterieur de la classe. La duree du cours pourra quant à elle etre accessible
- * mais non modifiable.
+ * - Creer une enumeration representant les trois couleurs primaires. Puis,
+ * creer une fonction, retournant pour chaque couleur son nom au format String
+ * en anglais (par exemple "RED")
  *
- * - Afficher le titre de votre cours nouvellement initialise.
+ * - Afficher le resultat de ces deux fonctions dans la console.
  *
  *
  *
  * A vous de jouer, et bon courage !
  *
  */
-class Course(private val id: Int, var title: String, val duration: Int, var state: Boolean)
+enum class Color{
+    red,
+    green,
+    blue
+}
+
+fun convertColor(color: Color): String{
+    when(color){
+        Color.red -> return "RED"
+        Color.blue -> return "BLUE"
+        Color.green -> return "GREEN"
+    }
+}
+
+fun min(a: Int, b: Int) = if(a < b) a*10 else b*10
 
 fun main(args: Array<String>) {
     println("Hello Openclassrooms students !")
 
-    val softwareCourse = Course(10, "software course", 10, false)
 
-    println(softwareCourse.title)
+    val color: Color = Color.blue;
+    println(convertColor(color))
+
+    println(min(25, 23))
 }
