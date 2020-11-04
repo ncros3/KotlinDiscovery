@@ -1,21 +1,17 @@
 /**
  *  ----- INITIEZ-VOUS A KOTLIN -----
  *
- * Partie 2 - Chapitre 2 : Iterez grace aux boucles
+ * Partie 2 - Chapitre 3 : Decouvrez le Smart Cast
  *
  *  ----- ENONCE -----
  *
  * Dans cet exercice interactif, vous allez devoir :
  *
- * - Creer une fonction, "while20Items", contenant une boucle "while" affichant
- * en message, l'index en cours d'iteration.
- * Cette boucle s'arretera au bout de 20 iterations.
+ * - Creer une fonction, guessTheType, permettant de deviner et d'afficher
+ * dans la console le type d'un objet passe en parametre.
+ * Les types supportes seront Int, String, List, Boolean et Array
  *
- * - Creer une fonction, "showArrayContent", contenant une boucle "for" affichant
- * en message, l'element du tableau de String en cours d'itération.
- * Ce tableau devra etre passe en parametre de cette fonction.
- *
- * - Afficher le resultat de ces deux fonctions dans la console.
+ * - Afficher le resultat de cette fonction dans la console.
  *
  *
  *
@@ -23,25 +19,27 @@
  *
  */
 
-fun while20items(){
-    var index = 0
-    while(index<20){
-        println("index : $index")
-        index++
-    }
-}
-
-fun showArrayContent(args: Array<Int>){
-    for(i in args){
-        println("Array content : $i")
-    }
+fun guessTheType(obj: Any) = when(obj){
+    is Int -> println("Int")
+    is String -> println("String")
+    is List<*> -> println("List")
+    is Boolean -> println("Boolean")
+    is Array<*> -> println("Array")
+    else -> println("Object type not supported.")
 }
 
 fun main(args: Array<String>) {
     println("Hello Openclassrooms students !")
 
-    while20items()
+    val myInt: Int = 1
+    guessTheType(myInt)
 
-    var stringArray = arrayOf(1, 2, 3, 4, 5)
-    showArrayContent(stringArray);
+    val myString: String = "Lea"
+    guessTheType(myString)
+
+    val myList: List<*> = listOf("john", "mike", "pete")
+    guessTheType(myList)
+
+    val myArray: Array<*> = arrayOf(1, 2, 3, 4)
+    guessTheType(myArray)
 }
