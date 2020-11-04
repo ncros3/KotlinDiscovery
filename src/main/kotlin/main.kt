@@ -1,19 +1,19 @@
 /**
  *  ----- INITIEZ-VOUS A KOTLIN -----
  *
- * Partie 2 - Chapitre 1 : Gerez des choix et des conditions
+ * Partie 2 - Chapitre 2 : Iterez grace aux boucles
  *
  *  ----- ENONCE -----
  *
  * Dans cet exercice interactif, vous allez devoir :
  *
- * - Creer une fonction utilisant la structure de controle "if" uniquement.
- * Celle-ci devra retourner le plus petit des deux nombres fournis en parametre.
- * De plus, le résultat devra etre multiplie par 10.
+ * - Creer une fonction, "while20Items", contenant une boucle "while" affichant
+ * en message, l'index en cours d'iteration.
+ * Cette boucle s'arretera au bout de 20 iterations.
  *
- * - Creer une enumeration representant les trois couleurs primaires. Puis,
- * creer une fonction, retournant pour chaque couleur son nom au format String
- * en anglais (par exemple "RED")
+ * - Creer une fonction, "showArrayContent", contenant une boucle "for" affichant
+ * en message, l'element du tableau de String en cours d'itération.
+ * Ce tableau devra etre passe en parametre de cette fonction.
  *
  * - Afficher le resultat de ces deux fonctions dans la console.
  *
@@ -22,28 +22,26 @@
  * A vous de jouer, et bon courage !
  *
  */
-enum class Color{
-    red,
-    green,
-    blue
-}
 
-fun convertColor(color: Color): String{
-    when(color){
-        Color.red -> return "RED"
-        Color.blue -> return "BLUE"
-        Color.green -> return "GREEN"
+fun while20items(){
+    var index = 0
+    while(index<20){
+        println("index : $index")
+        index++
     }
 }
 
-fun min(a: Int, b: Int) = if(a < b) a*10 else b*10
+fun showArrayContent(args: Array<Int>){
+    for(i in args){
+        println("Array content : $i")
+    }
+}
 
 fun main(args: Array<String>) {
     println("Hello Openclassrooms students !")
 
+    while20items()
 
-    val color: Color = Color.blue;
-    println(convertColor(color))
-
-    println(min(25, 23))
+    var stringArray = arrayOf(1, 2, 3, 4, 5)
+    showArrayContent(stringArray);
 }
